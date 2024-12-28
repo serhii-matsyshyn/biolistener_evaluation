@@ -6,7 +6,7 @@ def main():
     BoardShim.enable_dev_board_logger()
 
     params = BrainFlowInputParams()
-    params.ip_port = 0
+    params.ip_port = 12345
     params.ip_address = '0.0.0.0'
 
     board = BoardShim(BoardIds.BIOLISTENER_BOARD.value, params)
