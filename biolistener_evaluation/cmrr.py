@@ -6,8 +6,8 @@ from math import log10
 import pandas as pd
 import matplotlib.pyplot as plt
 
-folder_path = '../data/cmrr_imbalance_ad7771'
-# folder_path = '../data/cmrr_imbalance_ads131m08'
+folder_path = '../data/cmrr/cmrr_balance_ads131m08'
+# folder_path = '../data/cmrr/cmrr_imbalance_ads131m08'
 
 frequency_vrms = {}
 
@@ -28,7 +28,7 @@ for file_name in os.listdir(folder_path):
         frequency_vrms[frequency] = max(mean_removed.std())
 
 cmrr_db = {
-    key: 20 * log10((value * 2 * 2 ** 0.5) / (1 * 1000000)) for key, value in frequency_vrms.items()
+    key: 20 * log10((value * 2 * 2 ** 0.5) / (3.5 * 1000000)) for key, value in frequency_vrms.items()
 }
 
 # for key, value in cmrr_db.items():
