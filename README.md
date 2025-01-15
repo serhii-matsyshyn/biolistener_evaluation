@@ -129,7 +129,7 @@ Short summary: Frequency response is within the range required by regulations fo
 Short summary: SNR is great, comparable to costly EEG devices.
 
 #### Common Mode Rejection Ratio (CMRR) - Balance test
-Short summary: CMRR balance test results are great, above measurable with common equipment. They need professional equipment to be measured.
+Short summary: CMRR balance test results are great, above measurable with common equipment. Professional equipment is needed to measure this parameter.
 
 #### Common Mode Rejection Ratio (CMRR) - Imbalance test
 
@@ -182,7 +182,7 @@ Short summary: Frequency response is within the range required by regulations fo
 Short summary: SNR is great, comparable to costly EEG devices.
 
 #### Common Mode Rejection Ratio (CMRR) - Balance test
-Short summary: CMRR balance test results are great, above measurable with common equipment. They need professional equipment to be measured.
+Short summary: CMRR balance test results are great, above measurable with common equipment. Professional equipment is needed to measure this parameter.
 
 #### Common Mode Rejection Ratio (CMRR) - Imbalance test
 
