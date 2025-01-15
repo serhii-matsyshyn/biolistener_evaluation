@@ -25,7 +25,7 @@ for channel in mean_removed.columns:
 
 print("Input-Referred Noise (IRN) for each channel:")
 for channel, results in irn_results.items():
-    print(f"{channel}: Accurate = {results['accurate']:.6f} µV, Approx (99.73%) = {results['std_approx']:.6f} µV")
+    print(f"{channel}: Accurate = {results['accurate']:.6f} µV, STD ±3σ (99.73%) = {results['std_approx']:.6f} µV")
 
 # # FIXME: Vrms without removing the mean - wrong, dc offset not taken in account
 # vrms_with_mean = (channels ** 2).mean() ** 0.5
@@ -41,11 +41,13 @@ nrows = (n_channels + 3) // ncols
 
 fig, axes = plt.subplots(nrows, ncols, figsize=(14, 6 * nrows))
 
+fig.suptitle('Input-Referred Noise (IRN) Histograms', fontsize=16)
+
 axes = axes.flatten()
 
 for i, (channel, ax) in enumerate(zip(mean_removed.columns, axes)):
     ax.hist(mean_removed[channel], bins=50, color='skyblue', edgecolor='black')
-    ax.set_title(f"Histogram of Noise - {channel}")
+    ax.set_title(f"Histogram of Noise - Ch {channel}")
     ax.set_xlabel("Noise Amplitude (µV)")
     ax.set_ylabel("Frequency")
     ax.grid()
