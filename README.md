@@ -229,7 +229,7 @@ Channel 1 is used. All other channels are disabled.
 
 #### ECG - 5 Lead
 
-![ECG - 5 Lead Plot](data/images/ad7771/ad7771_ecg_5_lead_plot.jpg)
+![ECG - 5 Lead Plot](data/images/ad7771/ad7771_ecg_5_lead_plot.png)
 
 #### EEG, EMG - Alpha Brain Wave, Eye Blink
 
