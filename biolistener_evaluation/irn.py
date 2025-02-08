@@ -3,57 +3,73 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv(
-    '../data/irn/streamer_2024_12_26_18_36_10_ads131m08_test_3_dgnd.csv',
-    # '../data/irn/streamer_2024_12_25_21_55_32_ad7771_test_2.csv',
-    header=None, sep='\t'
-)
 
-channels = data.drop(columns=[0, 9, 10, 11, 12]).apply(lambda col: col.str.replace(',', '.')).astype('float64')
+class IRNAnalyzer:
+    def __init__(self, file_path: str):
+        self.file_path = file_path
+        self.data = None
+        self.mean_removed = None
+        self.irn_results = {}
 
-mean_removed = channels - channels.mean()
+        self.load_data()
+        self.compute_irn()
 
-irn_results = {}
+    def load_data(self):
+        self.data = pd.read_csv(self.file_path, header=None, sep='\t')
+        self.data = self.data.drop(columns=[0, 9, 10, 11, 12])
+        self.data = self.data.apply(lambda col: col.str.replace(',', '.')).astype('float64')
+        self.mean_removed = self.data - self.data.mean()
 
-for channel in mean_removed.columns:
-    channel_data = mean_removed[channel]
+    def compute_irn(self):
+        """Calculate accurate and approximated Input-Referred Noise (IRN)."""
+        for channel in self.mean_removed.columns:
+            channel_data = self.mean_removed[channel]
+            self.irn_results[channel] = {
+                'accurate': channel_data.max() - channel_data.min(),  # Accurate IRN (peak-to-peak) calculation
+                'std_approx': channel_data.std() * 6  # Approximation of IRN with standard deviation using ±3σ (99.73%)
+            }
 
-    irn_results[channel] = {
-        'accurate': channel_data.max() - channel_data.min(),  # Accurate IRN (peak-to-peak) calculation
-        'std_approx': channel_data.std() * 6  # Approximation using standard deviation
-    }
+    def display_results(self):
+        print("Input-Referred Noise (IRN) for each channel:")
+        for channel, results in self.irn_results.items():
+            print(f"Ch {channel}: Accurate = {results['accurate']:.6f} µV, "
+                  f"STD ±3σ (99.73%) = {results['std_approx']:.6f} µV")
 
-print("Input-Referred Noise (IRN) for each channel:")
-for channel, results in irn_results.items():
-    print(f"{channel}: Accurate = {results['accurate']:.6f} µV, STD ±3σ (99.73%) = {results['std_approx']:.6f} µV")
+        max_irn = max(results['accurate'] for results in self.irn_results.values())
+        max_irn_std = max(results['std_approx'] for results in self.irn_results.values())
 
-# # FIXME: Vrms without removing the mean - wrong, dc offset not taken in account
-# vrms_with_mean = (channels ** 2).mean() ** 0.5
-# print(f"Vrms for each channel (including mean): {vrms_with_mean}")
+        print(f"Maximum IRN (Accurate): {max_irn:.6f} µV")
+        print(f"Maximum IRN (STD ±3σ): {max_irn_std:.6f} µV")
 
-# Vrms with mean removed - way to fix
-vrms_mean_removed = mean_removed.std()
-print(f"Vrms for each channel (mean removed): {vrms_mean_removed}")
+    def plot(self):
+        n_channels = len(self.mean_removed.columns)
+        ncols = 4
+        nrows = (n_channels + 3) // ncols
 
-n_channels = len(mean_removed.columns)
-ncols = 4
-nrows = (n_channels + 3) // ncols
+        fig, axes = plt.subplots(nrows, ncols, figsize=(14, 6 * nrows))
+        fig.suptitle('Input-Referred Noise (IRN) Histograms', fontsize=16)
 
-fig, axes = plt.subplots(nrows, ncols, figsize=(14, 6 * nrows))
+        axes = axes.flatten()
 
-fig.suptitle('Input-Referred Noise (IRN) Histograms', fontsize=16)
+        for i, (channel, ax) in enumerate(zip(self.mean_removed.columns, axes)):
+            ax.hist(self.mean_removed[channel], bins=50, color='skyblue', edgecolor='black')
+            ax.set_title(f"Histogram of Noise - Ch {channel}")
+            ax.set_xlabel("Noise Amplitude (µV)")
+            ax.set_ylabel("Frequency")
+            ax.grid()
 
-axes = axes.flatten()
+        for j in range(i + 1, len(axes)):
+            axes[j].axis('off')
 
-for i, (channel, ax) in enumerate(zip(mean_removed.columns, axes)):
-    ax.hist(mean_removed[channel], bins=50, color='skyblue', edgecolor='black')
-    ax.set_title(f"Histogram of Noise - Ch {channel}")
-    ax.set_xlabel("Noise Amplitude (µV)")
-    ax.set_ylabel("Frequency")
-    ax.grid()
+        plt.tight_layout()
+        plt.show()
 
-for j in range(i + 1, len(axes)):
-    axes[j].axis('off')
 
-plt.tight_layout()
-plt.show()
+if __name__ == "__main__":
+    # file_path = '../data/irn/streamer_2024_12_26_18_36_10_ads131m08_test_3_dgnd.csv'
+    file_path = '../data/irn/streamer_2024_12_25_21_55_32_ad7771_test_2.csv'
+
+    analyzer = IRNAnalyzer(file_path)
+
+    analyzer.display_results()
+    analyzer.plot()
