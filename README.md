@@ -56,7 +56,9 @@ To bind to OpenBCI GUI, use previous command. The streaming board is created at
 _Note_: Customized OpenBCI GUI is required. Future integration with the official GUI is planned.
 
 ## Boards evaluation
-Evaluation scripts are located in `biolistener_evaluation` directory. They will be combined in Jupiter Notebook in the future.  
+Evaluation scripts are located in `biolistener_evaluation` directory.  
+See [biolistener_evaluation.ipynb](biolistener_evaluation.ipynb) for detailed evaluation results.
+
 **Evaluation Data**: Located in the `data` directory.
 
 > [!NOTE]
@@ -90,112 +92,8 @@ Calculated on data collected during Frequency Response test.
 #### Inputs impedance
 ![Inputs impedance setup](data/images/evaluation/evaluation_setups/inputs_impedance_setup.jpg)
 
-### ADC AD7771 (Analog Devices)
-
-#### Input Referred Noise (IRN)
-
-```text
-Input-Referred Noise (IRN) for each channel:
-1: Accurate = 5.178154 µV, STD ±3σ (99.73%) = 1.990201 µV
-2: Accurate = 2.346933 µV, STD ±3σ (99.73%) = 1.722421 µV
-3: Accurate = 2.458692 µV, STD ±3σ (99.73%) = 1.689134 µV
-4: Accurate = 2.458692 µV, STD ±3σ (99.73%) = 1.647123 µV
-5: Accurate = 2.458691 µV, STD ±3σ (99.73%) = 1.678384 µV
-6: Accurate = 3.091991 µV, STD ±3σ (99.73%) = 1.756075 µV
-7: Accurate = 3.539025 µV, STD ±3σ (99.73%) = 1.789343 µV
-8: Accurate = 2.868473 µV, STD ±3σ (99.73%) = 1.614539 µV
-```
-
-<p align="center">
-  <img alt="AD7771 Input Referred Noise (IRN)" src="data/images/ad7771/ad7771_irn.png" width="600">
-</p>
-
-Short summary: IRN (STD ±3σ 99.73%) is below 2uV for all channels, this is a good result.
-
-#### Frequency Response
-
-<p align="center">
-  <img alt="AD7771 Frequency Response" src="data/images/ad7771/ad7771_frequency_response.png" width="600">
-</p>
-
-Short summary: Frequency response is within the range required by regulations for EEG and ECG (thus for all other common biomedical applications as well).
-
-#### Signal to Noise Ratio (SNR)
-
-<p align="center">
-  <img alt="AD7771 Signal to Noise Ratio (SNR)" src="data/images/ad7771/ad7771_snr.png" width="600">
-</p>
-
-Short summary: SNR is great, comparable to costly EEG devices.
-
-#### Common Mode Rejection Ratio (CMRR) - Balance test
-Short summary: CMRR balance test results are great, above measurable with common equipment. Professional equipment is needed to measure this parameter.
-
-#### Common Mode Rejection Ratio (CMRR) - Imbalance test
-
-<p align="center">
-  <img alt="AD7771 Common Mode Rejection Ratio (CMRR) - Imbalance test" src="data/images/ad7771/ad7771_cmrr_imbalance.png" width="600">
-</p>
-
-Short summary: CMRR is great for all common biomedical applications.
-
-#### Inputs impedance
-More than 10MOhm.
-
-### ADC ADS131M08 (Texas Instruments)
-
-#### Input Referred Noise (IRN)
-
-```text
-Input-Referred Noise (IRN) for each channel:
-1: Accurate = 5.697458 µV, STD ±3σ (99.73%) = 3.985850 µV
-2: Accurate = 5.016849 µV, STD ±3σ (99.73%) = 3.671722 µV
-3: Accurate = 5.218014 µV, STD ±3σ (99.73%) = 3.761913 µV
-4: Accurate = 5.764514 µV, STD ±3σ (99.73%) = 4.334074 µV
-5: Accurate = 5.577877 µV, STD ±3σ (99.73%) = 3.818711 µV
-6: Accurate = 5.125255 µV, STD ±3σ (99.73%) = 3.635233 µV
-7: Accurate = 16.415119 µV, STD ±3σ (99.73%) = 5.686473 µV
-8: Accurate = 9.433552 µV, STD ±3σ (99.73%) = 4.317976 µV
-```
-
-<p align="center">
-  <img alt="ADS131M08 Input Referred Noise (IRN)" src="data/images/ads131m08/ads131m08_irn.png" width="600">
-</p>
-
-Short summary: IRN (STD ±3σ 99.73%) is below 6uV for all channels, this is a bit worse than AD7771, but still OK for most applications.
-
-
-#### Frequency Response
-
-<p align="center">
-  <img alt="ADS131M08 Frequency Response" src="data/images/ads131m08/ads131m08_frequency_response.png" width="600">
-</p>
-
-Short summary: Frequency response is within the range required by regulations for EEG and ECG (thus for all other common biomedical applications as well).
-
-#### Signal to Noise Ratio (SNR)
-
-<p align="center">
-  <img alt="ADS131M08 Signal to Noise Ratio (SNR)" src="data/images/ads131m08/ads131m08_snr.png" width="600">
-</p>
-
-Short summary: SNR is great, comparable to costly EEG devices.
-
-#### Common Mode Rejection Ratio (CMRR) - Balance test
-Short summary: CMRR balance test results are great, above measurable with common equipment. Professional equipment is needed to measure this parameter.
-
-#### Common Mode Rejection Ratio (CMRR) - Imbalance test
-
-<p align="center">
-  <img alt="ADS131M08 Common Mode Rejection Ratio (CMRR) - Imbalance test" src="data/images/ads131m08/ads131m08_cmrr_imbalance.png" width="600">
-</p>
-
-Short summary: CMRR is great for all common biomedical applications.
-
-#### Inputs impedance
-1.25-1.5MOhm on 8x-128x gain.
-
-## Real-world evaluation
+### Evaluation results
+See [biolistener_evaluation.ipynb](biolistener_evaluation.ipynb) for detailed evaluation results.
 
 ### Real-world Evaluation setups
 
