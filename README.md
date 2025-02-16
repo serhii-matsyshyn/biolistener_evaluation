@@ -80,20 +80,42 @@ The following test setups were used for evaluation:
 #### Input Referred Noise (IRN)
 ![Input Referred Noise (IRN) setup](data/images/evaluation/evaluation_setups/irn_setup.jpg)
 
+All the input ADC channels were shorted together and with device ground.
+
 #### Frequency Response
 ![Frequency Response setup](data/images/evaluation/evaluation_setups/frequency_response_setup.jpg)
+
+<p align="center">
+  <img alt="Frequency Response Schematic" src="data/images/evaluation/schematics/Frequency_Response_and_SNR.jpg" width="400">
+</p>
 
 #### Signal to Noise Ratio (SNR)
 Calculated on data collected during Frequency Response test.
 
-#### Common Mode Rejection Ratio (CMRR)
-![Common Mode Rejection Ratio (CMRR) setup](data/images/evaluation/evaluation_setups/cmrr_setup.jpg)
+#### Common Mode Rejection Ratio (CMRR) Balance
+![Common Mode Rejection Ratio (CMRR) Balance setup](data/images/evaluation/evaluation_setups/cmrr_balance_setup.jpg)
+
+<p align="center">
+  <img alt="Common Mode Rejection Ratio (CMRR) Balance Schematic" src="data/images/evaluation/schematics/cmrr_balance.jpg" width="400">
+</p>
+
+
+#### Common Mode Rejection Ratio (CMRR) Imbalance
+![Common Mode Rejection Ratio (CMRR) Imbalance setup](data/images/evaluation/evaluation_setups/cmrr_imbalance_setup.jpg)
+
+<p align="center">
+  <img alt="Common Mode Rejection Ratio (CMRR) Imbalance Schematic" src="data/images/evaluation/schematics/cmrr_imbalance.jpg" width="400">
+</p>
 
 #### Inputs impedance
 ![Inputs impedance setup](data/images/evaluation/evaluation_setups/inputs_impedance_setup.jpg)
 
+<p align="center">
+  <img alt="Inputs impedance Schematic" src="data/images/evaluation/schematics/Channel_Impedance_Test.jpg" width="400">
+</p>
+
 ### Evaluation results
-See [biolistener_evaluation.ipynb](biolistener_evaluation.ipynb) for detailed evaluation results.
+**See [biolistener_evaluation.ipynb](biolistener_evaluation.ipynb) for detailed evaluation results.**
 
 ### Real-world Evaluation setups
 
