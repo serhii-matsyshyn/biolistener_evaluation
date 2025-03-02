@@ -69,6 +69,8 @@ See [biolistener_evaluation.ipynb](biolistener_evaluation.ipynb) for detailed ev
 | Hantek DSO2C10 Digital Storage Oscilloscope                    | Has built-in signals generator (oscilloscope was updated to DSO2D15 firmware)                                                  |
 | Hantek PP-150 100MHz 1:1 / 10:1 Oscilloscope Probes            |                                                                                                                                |
 | Fnirsi P4100 100MHz 100:1 Oscilloscope Probes                  | High impedance probe                                                                                                           |
+| Laboratory power supply Katex KA3005D 30V 5 A                  | <img src="data/images/evaluation/equipment/lab_power_supply.jpg" alt="Laboratory power supply Katex KA3005D" width="150">      |
+| Multimeter                                                     | Any general-purpose multimeter can be used. Multimeters used: UNI-T UT136C+, Kaisi 9805                                        |
 | Custom connectors, cables, and adapters                        |                                                                                                                                |
 | Evaluation Helper PCB with soldered on test specific circuitry |                                                                                                                                |
 | Golden Cup Passive Electrodes, ECG/EEG Gel                     | <img src="data/images/evaluation/equipment/golden_cup_passive_electrodes.jpg" alt="Golden Cup Passive Electrodes" width="250"> |
@@ -112,6 +114,15 @@ Calculated on data collected during Frequency Response test.
 
 <p align="center">
   <img alt="Inputs impedance Schematic" src="data/images/evaluation/schematics/Channel_Impedance_Test.jpg" width="400">
+</p>
+
+#### Breakdown Voltage Test
+The Breakdown Voltage Test for the over voltage and ESD protection circuitry at an ADC input channel.  
+
+![Breakdown Voltage Test setup](data/images/evaluation/evaluation_setups/breakdown_voltage_test_setup.jpg)
+
+<p align="center">
+  <img alt="Breakdown Voltage Test Schematic" src="data/images/evaluation/schematics/Breakdown_Voltage_Test.jpg" width="400">
 </p>
 
 ### Evaluation results
