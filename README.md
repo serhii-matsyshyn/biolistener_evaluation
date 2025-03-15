@@ -61,8 +61,9 @@ See [biolistener_evaluation.ipynb](biolistener_evaluation.ipynb) for detailed ev
 
 **Evaluation Data**: Located in the `data` directory.
 
-> [!NOTE]
-> Take note! The following Boards evaluation plots, descriptions, data is **Work In Progress** and will be moved in the future to the Jupiter Notebook and described fully. At the moment, only short descriptions are provided. Stay tuned!
+[//]: # (> [!NOTE])
+
+[//]: # (> Take note! The following Boards evaluation plots, descriptions, data is **Work In Progress** and will be moved in the future to the Jupiter Notebook and described fully. At the moment, only short descriptions are provided. Stay tuned!)
 
 | Equipment                                                      | Description and Images                                                                                                         |
 |----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
