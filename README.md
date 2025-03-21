@@ -24,6 +24,7 @@ The evaluation covers key parameters:
   - Balance test
   - Imbalance test
 - **Inputs impedance**
+- **Breakdown Voltage Test**
 
 ### Experimental Setups for Real-World Evaluation
 
