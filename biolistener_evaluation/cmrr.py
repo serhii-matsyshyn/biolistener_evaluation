@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 
 
 class CMRRAnalyzer:
-    def __init__(self, folder_path: str, gen_voltage_vrms: float = 3.5):
+    def __init__(self, folder_path: str, gen_voltage_vpp: float = 3.5):
         self.folder_path = folder_path
-        self.reference_voltage = gen_voltage_vrms
+        self.reference_voltage = gen_voltage_vpp
         self.frequency_vrms = {}
         self.volts_to_microvolts = 1_000_000
 
