@@ -29,7 +29,7 @@ The evaluation covers key parameters:
 ### Experimental Setups for Real-World Evaluation
 
 - **Electromyography (EMG)**: Fist Clenching
-- **Electrocardiography (ECG)**: 1 Lead
+- **Electrocardiography (ECG)**: 3 Lead
 - **Electrocardiography (ECG)**: 5 Lead
 - **Electroencephalography (EEG) and EMG**: Alpha Brain Wave and Eye Blink Detection
 
@@ -137,8 +137,8 @@ Channel 1 is used. All other channels are disabled. Preferable electrodes for th
 
 ![EMG - Fist Clenching](data/images/experimental_setup/BioListener_emg_fist_clenching.jpg)
 
-#### ECG - 1 Lead
-Standard ECG 1 lead setup.
+#### ECG - 3 Lead
+Standard ECG 3 lead setup.
 
 #### ECG - 5 Lead
 Standard ECG 5 lead setup.
@@ -156,9 +156,9 @@ Channel 1 is used. All other channels are disabled.
 ![EMG - Fist Clenching Plot](data/images/ad7771/ad7771_emg_fist_clenching_plot.jpg)
 
 
-#### ECG - 1 Lead
+#### ECG - 3 Lead
 
-![ECG - 1 Lead Plot](data/images/ad7771/ad7771_ecg_1_lead_plot.jpg)
+![ECG - 3 Lead Plot](data/images/ad7771/ad7771_ecg_1_lead_plot.jpg)
 
 #### ECG - 5 Lead
 
@@ -176,9 +176,9 @@ Channel 1 is used. All other channels are disabled.
 ![EMG - Fist Clenching Plot](data/images/ads131m08/ads131m08_emg_fist_clenching_plot.jpg)
 
 
-#### ECG - 1 Lead
+#### ECG - 3 Lead
 
-![ECG - 1 Lead Plot](data/images/ads131m08/ads131m08_ecg_1_lead_plot_32x.png)
+![ECG - 3 Lead Plot](data/images/ads131m08/ads131m08_ecg_1_lead_plot_32x.png)
 
 #### ECG - 5 Lead
 
